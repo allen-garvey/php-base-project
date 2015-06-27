@@ -1,0 +1,67 @@
+// @import 'normalize.scss';
+
+/**
+* Constants
+*/
+//type
+$brand_font_family : Helvetica, 'Helvetica Neue', sans-serif;
+$heading_font_family : 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$body_copy_font_family : Georgia, 'Times', serif;
+$type_scale : 1.414; //augmented fourth
+
+//layout
+$universal_left_right_padding : 1em;
+
+//media queries
+$bootstrap_sm_breakpoint : 768px;
+$bootstrap_med_breakpoint : 992px;
+$bootstrap_lg_breakpoint : 1200px;
+
+/**
+* Base styles
+*/
+body{
+	font-size: 16px;
+	font-family : $body_copy_font_family;
+}
+
+h1,h2,h3,h4{
+	font-family : $heading_font_family;
+	font-weight : normal;
+}
+h1{
+	font-size: 1em * $type_scale * $type_scale * $type_scale * $type_scale;
+}
+h2{
+	font-size: 1em * $type_scale * $type_scale * $type_scale;
+}
+h3{
+	font-size: 1em * $type_scale * $type_scale;
+}
+h4{
+	font-size: 1em * $type_scale;
+}
+
+/**
+* Layout
+*/
+.container{
+	max-width: 850px;
+	margin: 0 auto;
+	padding : 0 $universal_left_right_padding;
+}
+
+/**
+* Media queries
+*/
+@media screen and (min-width: $bootstrap_sm_breakpoint){
+
+}
+
+@media screen and (min-width: $bootstrap_med_breakpoint){
+
+}
+
+@media screen and (min-width: $bootstrap_lg_breakpoint){
+
+}
