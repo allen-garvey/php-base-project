@@ -4,13 +4,14 @@
 * Constants
 */
 //type
-$brand_font_family : Helvetica, 'Helvetica Neue', sans-serif;
-$heading_font_family : 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$body_copy_font_family : Georgia, 'Times', serif;
 $type_scale : 1.414; //augmented fourth
 
 //layout
 $universal_left_right_padding : 1em;
+
+//colors
+$primary_color: #F44336;
+$accent_color: #4CAF50; //complement of primary color
 
 //media queries
 $bootstrap_sm_breakpoint : 768px;
@@ -18,41 +19,87 @@ $bootstrap_med_breakpoint : 992px;
 $bootstrap_lg_breakpoint : 1200px;
 
 /**
+* Abstract type classes
+*/
+//font families
+%brand_font_family{
+	font-family: Helvetica, 'Helvetica Neue', sans-serif;
+}
+%heading_font_family{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+%body_copy_font_family{
+	font-family: Georgia, 'Times', serif;
+}
+
+//font sizes
+%font_size_1{
+	font-size: 1rem / $type_scale;
+}
+%font_size_0{
+	font-size: 1rem;
+}
+%font_size1{
+	font-size: 1rem * $type_scale;
+}
+%font_size2{
+	font-size: 1rem * $type_scale * $type_scale;
+}
+%font_size3{
+	font-size: 1rem * $type_scale * $type_scale * $type_scale;
+}
+%font_size4{
+	font-size: 1rem * $type_scale * $type_scale * $type_scale * $type_scale;
+}
+
+/**
 * Base styles
 */
 body{
+	@extend %body_copy_font_family;
 	font-size: 16px;
-	font-family : $body_copy_font_family;
+	background-color: #FFFAFA; //snow
 }
 
 h1,h2,h3,h4{
-	font-family : $heading_font_family;
+	@extend %heading_font_family;
 	font-weight : normal;
 }
 h1{
-	font-size: 1em * $type_scale * $type_scale * $type_scale * $type_scale;
+	@extend %font_size4;
 }
 h2{
-	font-size: 1em * $type_scale * $type_scale * $type_scale;
+	@extend %font_size3;
 }
 h3{
-	font-size: 1em * $type_scale * $type_scale;
+	@extend %font_size2;
 }
 h4{
-	font-size: 1em * $type_scale;
+	@extend %font_size1;
 }
 
 img,svg{
 	max-width: 100%;
+}
+a{
+	color: $accent_color;
 }
 
 /**
 * Layout
 */
 .container{
-	max-width: 850px;
+	max-width: 950px;
 	margin: 0 auto;
 	padding : 0 $universal_left_right_padding;
+}
+
+/**
+* Header and nav styles
+*/
+.jumbotron{
+	@extend %brand_font_family;
+	background-color: lighten($primary_color, 40%);
 }
 
 /**
