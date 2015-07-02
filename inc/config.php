@@ -1,7 +1,7 @@
 <?php 
 define('ENVIRONMENT_DEVELOPMENT', 0);
 define('ENVIRONMENT_PRODUCTION', 1);
-define('ENVIRONMENT_CURRENT', ENVIRONMENT_DEVELOPMENT);
+require_once('current_environment.php'); //gets environment_current constant
 
 if(ENVIRONMENT_CURRENT === ENVIRONMENT_DEVELOPMENT){
 	define('BASE_URL','/folder_name/');
