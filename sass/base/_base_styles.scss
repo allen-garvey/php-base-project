@@ -7,6 +7,7 @@ html{
 body{
 	@include font_body;
 	background-color: $color_background_main;
+	margin: 0;
 }
 
 h1,h2,h3,h4{
@@ -31,6 +32,10 @@ img,svg{
 }
 a{
 	color: $color_secondary;
+	text-decoration: none;
+	&:hover{
+		text-decoration: underline;
+	}
 }
 
 /**
@@ -39,12 +44,6 @@ a{
 .container{
 	max-width: $container_width;
 	margin: 0 auto;
+	padding: 0 $container_horizontal_padding;
 }
 
-/**
-* Header and nav styles
-*/
-.jumbotron{
-	@include font_brand;
-	background-color: lighten($color_primary, 40%);
-}
