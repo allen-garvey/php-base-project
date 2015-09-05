@@ -47,3 +47,9 @@ a{
 	padding: 0 $container_horizontal_padding;
 }
 
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
