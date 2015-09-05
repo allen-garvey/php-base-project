@@ -14,9 +14,9 @@ $type_scale : $type_scale_p4;
 //color names
 
 //color roles
-$color_primary_text : null;
-$color_primary_accent : null;
-$color_primary_background : null;
+$color_primary_text : black !default;
+$color_primary_accent : dodgerblue !default;
+$color_primary_background : white !default;
 
 //layout
 $container_width : 950px;
