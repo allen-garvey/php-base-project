@@ -6,7 +6,8 @@ html{
 }
 body{
 	@include font_body;
-	background-color: $color_background_main;
+	color: $color_primary_text;
+	background-color: $color_primary_background;
 	margin: 0;
 }
 
@@ -31,7 +32,7 @@ img,svg{
 	max-width: 100%;
 }
 a{
-	color: $color_secondary;
+	color: $color_primary_accent;
 	text-decoration: none;
 	&:hover{
 		text-decoration: underline;
