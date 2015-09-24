@@ -3,19 +3,19 @@
 }
 
 @mixin font_brand{
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: $font_brand;
 	@content;
 }
 @mixin font_heading{
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: $font_heading;
 	@content;
 }
 @mixin font_body{
-	font-family: Georgia, 'Times', serif;
+	font-family: $font_body;
 	@content;
 }
 @mixin font_code{
-	font-family: Menlo, Monaco, Consolas, Inconsolata, 'Courier New', monospace;
+	font-family: $font_code;
 	@content;
 }
 
@@ -32,6 +32,24 @@
 	}
 	@else{
 		@media screen and (min-width: $breakpoint_lg){
+			@content;
+		}
+	}
+}
+
+@mixin media_q_inverse($breakpoint: sm){
+	@if $breakpoint == sm{
+		@media screen and (max-width: $breakpoint_sm - 1px){
+			@content;
+		}
+	}
+	@else if $breakpoint == med{
+		@media screen and (max-width: $breakpoint_med - 1px){
+			@content;
+		}
+	}
+	@else{
+		@media screen and (max-width: $breakpoint_lg - 1px){
 			@content;
 		}
 	}
