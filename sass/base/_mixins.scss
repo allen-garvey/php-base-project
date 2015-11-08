@@ -54,3 +54,19 @@
 		}
 	}
 }
+
+@mixin icon_before($icon_char : ""){
+	&:before{
+		content: $icon_char;
+		font-family: $font_icon;
+		@content;
+	}
+}
+
+@mixin icon_after($icon_char : ""){
+	&:after{
+		content: $icon_char;
+		font-family: $font_icon;
+		@content;
+	}
+}
