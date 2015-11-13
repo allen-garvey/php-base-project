@@ -3,6 +3,10 @@
 */
 html{
 	font-size: $rem_base;
+	box-sizing: border-box;
+}
+*, *:before, *:after { 
+	box-sizing: inherit; //sets box-sizing to border box by default, but helps to prevent plugins not breaking if they want content-box
 }
 body{
 	@include font_body;
@@ -11,7 +15,7 @@ body{
 	margin: 0;
 }
 
-h1,h2,h3,h4{
+h1,h2,h3,h4,h5,h6{
 	@include font_heading;
 	font-weight : normal;
 	margin: 0;
