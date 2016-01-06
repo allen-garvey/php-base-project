@@ -7,7 +7,7 @@ var rename = require('gulp-rename');
 var maps = require('gulp-sourcemaps');
 
 var JS_SOURCE_DIR = 'js/';
-var JS_DEST_DIR = 'scripts/';
+var JS_DEST_DIR = 'public_html/scripts/';
 var DIST_NAME = 'app'; //name of compiled file to be served i.e. app.js and app.min.js
 
 gulp.task('concatScripts', function(){

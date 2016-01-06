@@ -12,7 +12,7 @@ define('MODELS_PATH', INC_PATH.'models/');
 require_once(INC_PATH.'current_environment.php'); //gets environment_current constant
 
 if(ENVIRONMENT_CURRENT === ENVIRONMENT_DEVELOPMENT){
-	define('BASE_URL','/folder_name/');
+	define('BASE_URL','/folder_name/public_html/');
 }
 
 define('STYLES_URL', BASE_URL.'styles/');
