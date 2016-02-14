@@ -13,6 +13,10 @@ var DIST_NAME = 'app'; //name of compiled file to be served i.e. app.js and app.
 
 var SASS_SOURCE_DIR = 'sass/';
 var STYLES_DEST_DIR = 'public_html/styles/';
+var SASS_OPTIONS = {
+  errLogToConsole: true,
+  outputStyle: 'compressed' //options: expanded, nested, compact, compressed
+};
 
 gulp.task('concatScripts', function(){
 	return gulp.src(['app'].map(function(file){return JS_SOURCE_DIR + file + '.js';}))
@@ -34,7 +38,7 @@ gulp.task('watchScripts', function(){
 
 gulp.task('sass', function() {
     gulp.src(SASS_SOURCE_DIR + '**/*.scss')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass(SASS_OPTIONS).on('error', sass.logError))
         .pipe(gulp.dest(STYLES_DEST_DIR));
 });
 gulp.task('watchSass',function() {
