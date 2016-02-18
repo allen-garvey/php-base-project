@@ -9,7 +9,7 @@ define('VIEWS_PATH', INC_PATH.'views/');
 define('CONTROLLERS_PATH', INC_PATH.'controllers/');
 define('MODELS_PATH', INC_PATH.'models/');
 
-require_once(INC_PATH.'current_environment.php'); //gets environment_current constant
+require_once(INC_PATH.'environment.php'); //gets environment_current constant
 
 if(ENVIRONMENT_CURRENT === ENVIRONMENT_DEVELOPMENT){
 	define('BASE_URL','/folder_name/public_html/');
