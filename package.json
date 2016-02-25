@@ -2,7 +2,7 @@
   "name": "php_base_project",
   "version": "1.0.0",
   "description": "Empty base project for php site",
-  "main": "index.php",
+  "main": "public_html/index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "setup": "gulp & if [ ! -f ./inc/environment ]; then cp ./inc/environment_example.php ./inc/environment.php; fi"
