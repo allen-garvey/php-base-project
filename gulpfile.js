@@ -1,5 +1,11 @@
 "use strict";
 
+//setup environment
+var config = {};
+config.environment_definitions = require('./inc/environment_definitions.json');
+config.ENV_CURRENT = require('./inc/environment.json');
+config.ENV_CURRENT = config.environment_definitions[config.ENV_CURRENT['ENV_CURRENT']];
+
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
