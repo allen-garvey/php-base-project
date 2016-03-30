@@ -1,7 +1,4 @@
 <?php 
-define('ENVIRONMENT_DEVELOPMENT', 0);
-define('ENVIRONMENT_PRODUCTION', 1);
-
 //paths
 define('ROOT_PATH', dirname(__FILE__, 2).'/');
 define('INC_PATH', ROOT_PATH.'inc/');
@@ -9,9 +6,9 @@ define('VIEWS_PATH', INC_PATH.'views/');
 define('CONTROLLERS_PATH', INC_PATH.'controllers/');
 define('MODELS_PATH', INC_PATH.'models/');
 
-require_once(INC_PATH.'environment.php'); //gets environment_current constant
+require_once(INC_PATH.'environment_setup.php');
 
-if(ENVIRONMENT_CURRENT === ENVIRONMENT_DEVELOPMENT){
+if(ENV_CURRENT === ENV_DEV){
 	define('BASE_URL','/folder_name/public_html/');
 }
 
