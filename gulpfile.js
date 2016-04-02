@@ -24,6 +24,10 @@ var SASS_OPTIONS = {
   // sourceComments: true, //turns on line number comments 
   outputStyle: 'compressed' //options: expanded, nested, compact, compressed
 };
+if(config.ENV_CURRENT !== config.environment_definitions.ENV_PROD){
+	SASS_OPTIONS.outputStyle = 'expanded';
+	SASS_OPTIONS.sourceComments = true;
+}
 
 gulp.task('concatScripts', function(){
 	return gulp.src(['app'].map(function(file){return JS_SOURCE_DIR + file + '.js';}))
