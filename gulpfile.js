@@ -56,5 +56,6 @@ gulp.task('watchSass',function() {
     gulp.watch(SASS_SOURCE_DIR + '**/*.scss', ['sass']);
 });
 
+gulp.task('watch', ['build', 'watchSass', 'watchScripts']);
 gulp.task('build', ['minifyScripts', 'sass']);
 gulp.task('default', ['build']);
