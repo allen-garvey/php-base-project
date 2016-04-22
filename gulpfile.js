@@ -9,7 +9,9 @@ var sass = require('gulp-sass');
 
 var config = require(__dirname + '/gulp-config.js');
 
-
+/*
+* JavaScript Tasks
+*/
 gulp.task('concatScripts', function(){
 	return gulp.src(config.js.app_files)
 		.pipe(maps.init())
@@ -28,6 +30,9 @@ gulp.task('watchScripts', function(){
 	gulp.watch(config.js.SOURCE_DIR + '**/*.js', ['minifyScripts']);
 });
 
+/*
+* Sass/Styles Tasks
+*/
 gulp.task('sass', function() {
     gulp.src(config.styles.SOURCE_DIR + '**/*.scss')
         .pipe(sass(config.styles.sass_options).on('error', sass.logError))
@@ -37,6 +42,12 @@ gulp.task('watchSass',function() {
     gulp.watch(config.styles.SOURCE_DIR + '**/*.scss', ['sass']);
 });
 
+/*
+* Main gulp commands
+*/
 gulp.task('watch', ['build', 'watchSass', 'watchScripts']);
 gulp.task('build', ['minifyScripts', 'sass']);
 gulp.task('default', ['build']);
+
+
+
