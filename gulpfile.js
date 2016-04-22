@@ -1,11 +1,5 @@
 "use strict";
 
-//setup environment
-var config = {};
-config.environment_definitions = require(__dirname + '/inc/environment_definitions.json');
-config.ENV_CURRENT = require(__dirname + '/inc/environment.json');
-config.ENV_CURRENT = config.environment_definitions[config.ENV_CURRENT['ENV_CURRENT']];
-
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -13,47 +7,34 @@ var rename = require('gulp-rename');
 var maps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 
-var JS_SOURCE_DIR = __dirname + '/js/';
-var JS_DEST_DIR = __dirname + '/public_html/scripts/';
-var DIST_NAME = 'app'; //name of compiled file to be served i.e. app.js and app.min.js
+var config = require(__dirname + '/gulp-config.js');
 
-var SASS_SOURCE_DIR = __dirname + '/sass/';
-var STYLES_DEST_DIR = __dirname + '/public_html/styles/';
-var SASS_OPTIONS = {
-  errLogToConsole: true,
-  // sourceComments: true, //turns on line number comments 
-  outputStyle: 'compressed' //options: expanded, nested, compact, compressed
-};
-if(config.ENV_CURRENT !== config.environment_definitions.ENV_PROD){
-	SASS_OPTIONS.outputStyle = 'expanded';
-	SASS_OPTIONS.sourceComments = true;
-}
 
 gulp.task('concatScripts', function(){
-	return gulp.src(['app'].map(function(file){return JS_SOURCE_DIR + file + '.js';}))
+	return gulp.src(config.js.app_files)
 		.pipe(maps.init())
-		.pipe(concat(DIST_NAME + '.js'))
+		.pipe(concat(config.js.DIST_NAME + '.js'))
 		.pipe(maps.write('./'))
-		.pipe(gulp.dest(JS_DEST_DIR));
+		.pipe(gulp.dest(config.js.DEST_DIR));
 });
 
 gulp.task('minifyScripts', ['concatScripts'], function(){
-	return gulp.src(JS_DEST_DIR + DIST_NAME + '.js')
+	return gulp.src(config.js.DEST_DIR + config.js.DIST_NAME + '.js')
 		.pipe(uglify())
-		.pipe(rename(DIST_NAME + '.min.js'))
-		.pipe(gulp.dest(JS_DEST_DIR));
+		.pipe(rename(config.js.DIST_NAME + '.min.js'))
+		.pipe(gulp.dest(config.js.DEST_DIR));
 });
 gulp.task('watchScripts', function(){
-	gulp.watch(JS_SOURCE_DIR + '**/*.js', ['minifyScripts']);
+	gulp.watch(config.js.SOURCE_DIR + '**/*.js', ['minifyScripts']);
 });
 
 gulp.task('sass', function() {
-    gulp.src(SASS_SOURCE_DIR + '**/*.scss')
-        .pipe(sass(SASS_OPTIONS).on('error', sass.logError))
-        .pipe(gulp.dest(STYLES_DEST_DIR));
+    gulp.src(config.styles.SOURCE_DIR + '**/*.scss')
+        .pipe(sass(config.styles.sass_options).on('error', sass.logError))
+        .pipe(gulp.dest(config.styles.DEST_DIR));
 });
 gulp.task('watchSass',function() {
-    gulp.watch(SASS_SOURCE_DIR + '**/*.scss', ['sass']);
+    gulp.watch(config.styles.SOURCE_DIR + '**/*.scss', ['sass']);
 });
 
 gulp.task('watch', ['build', 'watchSass', 'watchScripts']);
