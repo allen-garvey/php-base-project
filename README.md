@@ -15,7 +15,8 @@ This is meant to serve as an empty base PHP website template to speed up develop
 * If you do not have Gulp installed type `npm install gulp -g` or `sudo npm install gulp -g` to install Gulp
 * Type `npm run setup` to setup the project for the first time
 * Edit inc/environment.php to set the current environment variables
-* Type `gulp` to compile raw js files and scss files thereafter
+* Type `gulp build` to compile raw JavaScript files and scss files thereafter
+* Type `gulp watch` to watch for changes in JavaScript and scss files and build as necessary
 
 ##License
 
