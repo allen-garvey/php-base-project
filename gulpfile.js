@@ -26,9 +26,6 @@ gulp.task('minifyScripts', ['concatScripts'], function(){
 		.pipe(rename(config.js.DIST_NAME + '.min.js'))
 		.pipe(gulp.dest(config.js.DEST_DIR));
 });
-gulp.task('watchScripts', function(){
-	gulp.watch(config.js.SOURCE_DIR + '**/*.js', ['minifyScripts']);
-});
 
 /*
 * Sass/Styles Tasks
@@ -38,12 +35,23 @@ gulp.task('sass', function() {
         .pipe(sass(config.styles.sass_options).on('error', sass.logError))
         .pipe(gulp.dest(config.styles.DEST_DIR));
 });
+
+
+/*
+* Watch tasks
+*/
+
 gulp.task('watchSass',function() {
     gulp.watch(config.styles.SOURCE_DIR + '**/*.scss', ['sass']);
 });
 
+gulp.task('watchScripts', function(){
+	gulp.watch(config.js.SOURCE_DIR + '**/*.js', ['minifyScripts']);
+});
+
+
 /*
-* Main gulp commands
+* Main gulp tasks
 */
 gulp.task('watch', ['build', 'watchSass', 'watchScripts']);
 gulp.task('build', ['minifyScripts', 'sass']);
