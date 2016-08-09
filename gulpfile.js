@@ -1,5 +1,6 @@
 "use strict";
 
+var path = require('path');
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -7,7 +8,7 @@ var rename = require('gulp-rename');
 var maps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 
-var config = require(__dirname + '/gulp-config.js');
+var config = require(path.join(__dirname, 'gulp-config.js'));
 
 /*
 * JavaScript Tasks
@@ -21,7 +22,7 @@ gulp.task('concatScripts', function(){
 });
 
 gulp.task('minifyScripts', ['concatScripts'], function(){
-	return gulp.src(config.js.DEST_DIR + config.js.DIST_NAME + '.js')
+	return gulp.src(path.join(config.js.DEST_DIR, config.js.DIST_NAME + '.js'))
 		.pipe(uglify())
 		.pipe(rename(config.js.DIST_NAME + '.min.js'))
 		.pipe(gulp.dest(config.js.DEST_DIR));
