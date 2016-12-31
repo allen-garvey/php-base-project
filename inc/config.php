@@ -8,9 +8,8 @@ define('MODELS_PATH', INC_PATH.'models/');
 
 require_once(INC_PATH.'environment_setup.php');
 
-if(ENV_CURRENT === ENV_DEV){
-	define('BASE_URL','/folder_name/public_html/');
-}
+//urls
+define('BASE_URL','/');
 
 define('STYLES_URL', BASE_URL.'styles/');
 define('SCRIPTS_URL', BASE_URL.'scripts/');
