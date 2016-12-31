@@ -37,10 +37,13 @@ config.styles.sass_options = {
   outputStyle: 'compressed' //options: expanded, nested, compact, compressed
 };
 
+/*
+//Example of build options based on environment
 if(config.env.CURRENT !== config.env.definitions.ENV_PROD){
 	config.styles.sass_options.outputStyle = 'expanded';
 	config.styles.sass_options.sourceComments = true;
 }
+*/
 
 
 /*
